@@ -61,8 +61,11 @@
       this.getHomeGoods('pop')
       this.getHomeGoods('new')
       this.getHomeGoods('sell')
-
-
+      //监听GoodsListItem中图片加载完成
+      //为了解决scroll在加载页面滚动时候滚动不完全的问题
+      this.$bus.$on('ItemImgload', () => {
+        this.$refs.scroll.refresh()
+      })
     },
     methods: {
       /**

@@ -2,7 +2,7 @@
   <div class="goods-item">
 <!--    <img src="../../../assets/GHimg/1/1.jpg" alt="">-->
     <a :href="goodsItem.alt">
-      <img :src="goodsItem.img" alt="">
+      <img :src="goodsItem.img" alt="" @load="imgLaod">
     </a>
     <div class="goods-info">
       <p>
@@ -26,6 +26,11 @@
         }
       }
     },
+    methods: {
+      imgLaod() {
+        this.$bus.$emit('ItemImgload')
+      }
+    }
   }
 </script>
 
