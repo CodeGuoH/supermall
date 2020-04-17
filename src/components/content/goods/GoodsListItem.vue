@@ -1,9 +1,9 @@
 <template>
-  <div class="goods-item">
+  <div class="goods-item" @click="itemClick">
 <!--    <img src="../../../assets/GHimg/1/1.jpg" alt="">-->
-    <a :href="goodsItem.alt">
+<!--    <a :href="goodsItem.alt">-->
       <img :src="goodsItem.img" alt="" @load="imgLaod">
-    </a>
+<!--    </a>-->
     <div class="goods-info">
       <p>
         {{goodsItem.title}}
@@ -29,6 +29,9 @@
     methods: {
       imgLaod() {
         this.$bus.$emit('ItemImgload')
+      },
+      itemClick() {
+        this.$router.push('/detail/' + this.goodsItem.discribe)
       }
     }
   }
